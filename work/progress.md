@@ -28,3 +28,10 @@ VIDEO.json: placeholder {"url":"https://www.youtube.com/shorts/PLACEHOLDER"} —
 UPLOAD.md written to work/ (title, tags, exact description + play code makefun-quilt-cobalt-acrobat).
 RUNS: node v24.22.1; run 1 OK, run 2 OK, out/VIDEO.json identical (sha256 945c3429a8d0c87abe3d3772da564c9f0a42e61948d7aa9fe8e04b62897fc6dd). Only a harmless MODULE_TYPELESS_PACKAGE_JSON warning on stderr.
 NOT DONE (by design): no YouTube upload (no channel access), no GitHub repo (repo agent next). Clip kept OUT of git.
+
+## 2026-11-21 ~16:10 WIB — builder done, repo ready locally, TWO blockers
+- Builder verified by coordinator: clip 1080x1920, 26.0s, 14,054,597 B, h264; moment = heist climax trailer 117-143s; pitch on screen final 6s; main.ts hand-written + 1 genuine edit, determinism 2 runs identical; VIDEO.json placeholder; UPLOAD.md exact (title/tags/description verbatim + play code).
+- Repo agent done locally: commit aec7052 (8 files: .gitignore, .makefun/owner.json, LICENSE SPDX MIT, README from requirements template w/ 3 badges, VIDEO.json, main.ts, work/UPLOAD.md, work/progress.md). Hashes main.ts/VIDEO.json unchanged. Clip NOT in repo. Verified by coordinator (git log/status/ls-files).
+- BLOCKER 1 (push): execution-risk flag on the repo directory stopped `gh repo create --push` + About edit. Needs bangzo's explicit go-ahead (same mitigation as poem: all git with -c core.hooksPath=/dev/null).
+- BLOCKER 2 (YouTube): entry REQUIRES a public YouTube Short upload; agent cannot upload (no channel access, YouTube unreachable from VM). Bangzo must upload the clip himself from his phone (file + title + description ready in work/UPLOAD.md) or the bounty cannot be entered. NOTE: an earlier message told him no YouTube upload was needed — WRONG per bounty spec; must be corrected to him.
+- After both blockers clear: update VIDEO.json with real Shorts URL (in a bundled session) -> bundle (builder+repo+fix sessions, handed-off pattern) -> check -> submit. Quota can_submit TRUE, day 5/5, hard 40/40. Deadline Mon 23 Nov 08:00 WIB.
